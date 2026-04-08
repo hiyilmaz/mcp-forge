@@ -2,7 +2,7 @@
 #
 # Covers:
 #   NFR-002: Cross-platform compatibility (macOS, Windows, Linux)
-#   TC-INT-FR003-01: PostgreSQL integration test (via postgres service)
+#   TC-INT-FR003-01: PostgreSQL integration test (Linux only — Docker services not available on macOS/Windows runners)
 #   TC-INT-NFR002-01/02/03: Platform-specific scaffold + Claude Desktop config paths
 
 name: CI
@@ -16,25 +16,11 @@ on:
 jobs:
   # ──────────────────────────────────────────────
   # TC-INT-NFR002-01: macOS runner
+  # Note: No Docker on macOS runners — DB test skipped (no DATABASE_URL)
   # ──────────────────────────────────────────────
   test-macos:
     name: "TC-INT-NFR002-01 — macOS"
     runs-on: macos-latest
-
-    services:
-      postgres:
-        image: postgres:15
-        env:
-          POSTGRES_USER: testuser
-          POSTGRES_PASSWORD: testpass
-          POSTGRES_DB: testdb
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
       - uses: actions/checkout@v4
@@ -51,10 +37,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Run all tests (including DB integration)
+      - name: Run tests (unit + contract + integration, no DB)
         run: npm test
-        env:
-          DATABASE_URL: postgresql://testuser:testpass@localhost:5432/testdb
 
   # ──────────────────────────────────────────────
   # TC-INT-NFR002-02: Windows runner
