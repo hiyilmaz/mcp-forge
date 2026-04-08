@@ -11,7 +11,7 @@ export interface InitOptions {
 }
 
 export async function init(projectName: string, options: InitOptions) {
-  clack.intro('⚡  mcp-forge  v0.1.0');
+  clack.intro('⚡  mcp-forge  v0.1.1');
 
   // Validate project name
   if (!projectName || projectName.length < 2 || !/^[a-z0-9-]+$/i.test(projectName)) {
@@ -86,5 +86,5 @@ Next steps:
   npm install
   npm run dev
 
-Docs: https://github.com/org/mcp-forge`);
+Docs: https://github.com/hiyilmaz/mcp-forge`);
 }

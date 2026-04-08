@@ -191,7 +191,54 @@ describe('TC-PERF-NFR001-01: CLI Startup Time', () => {
     const start = Date.now();
     execSync('node dist/index.js --help', { stdio: 'pipe' });
     const duration = Date.now() - start;
-    
+
     expect(duration).toBeLessThan(2000);
+  });
+});
+
+describe('TC-E2E-FR008-01: Terminal UX — Step-by-Step User Flow', () => {
+  const testProject = 'test-ux-' + Date.now();
+  const testDir = join(process.cwd(), testProject);
+
+  afterEach(() => {
+    if (existsSync(testDir)) {
+      rmSync(testDir, { recursive: true, force: true });
+    }
+  });
+
+  it('displays banner with mcp-forge branding', () => {
+    const result = execSync(
+      `node dist/index.js init ${testProject} --template empty --language typescript --no-register`,
+      { stdio: 'pipe', encoding: 'utf-8' }
+    );
+    expect(result).toMatch(/mcp-forge/i);
+  });
+
+  it('displays success message with project name and next steps', () => {
+    const result = execSync(
+      `node dist/index.js init ${testProject} --template empty --language typescript --no-register`,
+      { stdio: 'pipe', encoding: 'utf-8' }
+    );
+    expect(result).toContain(testProject);
+    expect(result).toContain('npm install');
+    expect(result).toContain('npm run dev');
+  });
+
+  it('displays correct docs URL in success message', () => {
+    const result = execSync(
+      `node dist/index.js init ${testProject} --template empty --language typescript --no-register`,
+      { stdio: 'pipe', encoding: 'utf-8' }
+    );
+    expect(result).toContain('https://github.com/hiyilmaz/mcp-forge');
+  });
+
+  it('completes full init flow in under 5 seconds', () => {
+    const start = Date.now();
+    execSync(
+      `node dist/index.js init ${testProject} --template empty --language typescript --no-register`,
+      { stdio: 'pipe' }
+    );
+    const duration = Date.now() - start;
+    expect(duration).toBeLessThan(5000);
   });
 });
