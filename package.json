@@ -1,0 +1,31 @@
+{
+  "name": "mcp-forge",
+  "version": "0.1.0",
+  "description": "The fastest way to build MCP servers",
+  "type": "module",
+  "bin": {
+    "mcp-forge": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup && cp -r templates dist/",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": ["mcp", "cli", "scaffold", "model-context-protocol"],
+  "author": "mcp-forge Maintainer",
+  "license": "MIT",
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
