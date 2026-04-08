@@ -1,10 +1,10 @@
-# mcp-forge
+# create-mcp-forge
 
 ⚡ **The fastest way to build MCP servers**
 
 A powerful CLI tool for scaffolding [Model Context Protocol](https://modelcontextprotocol.io) servers with production-ready templates.
 
-[![npm version](https://img.shields.io/npm/v/mcp-forge.svg)](https://www.npmjs.com/package/mcp-forge)
+[![npm version](https://img.shields.io/npm/v/create-mcp-forge.svg)](https://www.npmjs.com/package/create-mcp-forge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -19,7 +19,7 @@ A powerful CLI tool for scaffolding [Model Context Protocol](https://modelcontex
 ## Quick Start
 
 ```bash
-npx mcp-forge init my-server
+npm create mcp-forge@latest my-server
 ```
 
 Follow the interactive prompts to:
@@ -30,27 +30,14 @@ Follow the interactive prompts to:
 
 Your MCP server is ready! 🎉
 
-## Installation
+## Installation & Usage
 
-### Global Installation (Optional)
-
-```bash
-npm install -g mcp-forge
-mcp-forge init my-server
-```
-
-### One-Time Use (Recommended)
-
-```bash
-npx mcp-forge init my-server
-```
-
-## Usage
+Thanks to npm's `create` command, you don't need to install anything globally. Just run:
 
 ### Interactive Mode
 
 ```bash
-npx mcp-forge init my-server
+npm create mcp-forge@latest my-server
 ```
 
 The CLI will guide you through:
@@ -62,7 +49,7 @@ The CLI will guide you through:
 ### Non-Interactive Mode
 
 ```bash
-npx mcp-forge init my-server \
+npm create mcp-forge@latest my-server \
   --template postgresql \
   --language typescript \
   --no-register
@@ -71,7 +58,7 @@ npx mcp-forge init my-server \
 ### CLI Options
 
 ```bash
-mcp-forge init <project-name> [options]
+create-mcp-forge <project-name> [options]
 
 Options:
   -t, --template <name>    Template to use (empty|postgresql|rest-api|filesystem)
@@ -87,7 +74,7 @@ Options:
 Minimal MCP server with basic structure. Perfect for custom implementations.
 
 ```bash
-npx mcp-forge init my-server --template empty
+npm create mcp-forge@latest my-server --template empty
 ```
 
 **Includes:**
@@ -103,7 +90,7 @@ npx mcp-forge init my-server --template empty
 Full-featured database MCP server with connection pooling and query tools.
 
 ```bash
-npx mcp-forge init my-db-server --template postgresql
+npm create mcp-forge@latest my-db-server --template postgresql
 ```
 
 **Tools Included:**
@@ -126,7 +113,7 @@ npx mcp-forge init my-db-server --template postgresql
 HTTP client MCP server for interacting with REST APIs.
 
 ```bash
-npx mcp-forge init my-api-server --template rest-api
+npm create mcp-forge@latest my-api-server --template rest-api
 ```
 
 **Tools Included:**
@@ -148,7 +135,7 @@ npx mcp-forge init my-api-server --template rest-api
 Secure file operations MCP server with path traversal protection.
 
 ```bash
-npx mcp-forge init my-fs-server --template filesystem
+npm create mcp-forge@latest my-fs-server --template filesystem
 ```
 
 **Tools Included:**
@@ -166,7 +153,7 @@ npx mcp-forge init my-fs-server --template filesystem
 
 ## Project Structure
 
-```
+```text
 my-server/
 ├── src/
 │   ├── index.ts              # Main server entry point
@@ -185,7 +172,7 @@ my-server/
 ### 1. Create Your Server
 
 ```bash
-npx mcp-forge init my-server --template postgresql
+npm create mcp-forge@latest my-server --template postgresql
 cd my-server
 ```
 
@@ -351,7 +338,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT © mcp-forge Maintainer
+MIT © hiyilmaz
 
 ## Resources
 
