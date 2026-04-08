@@ -1,10 +1,10 @@
 {
-  "name": "mcp-forge",
-  "version": "0.1.0",
+  "name": "create-mcp-forge",
+  "version": "0.1.1",
   "description": "The fastest way to build MCP servers",
   "type": "module",
   "bin": {
-    "mcp-forge": "./dist/index.js"
+    "create-mcp-forge": "./dist/index.js"
   },
   "scripts": {
     "build": "tsup && cp -r templates dist/",
@@ -12,9 +12,27 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
-  "keywords": ["mcp", "cli", "scaffold", "model-context-protocol"],
-  "author": "mcp-forge Maintainer",
+  "keywords": [
+    "mcp",
+    "cli",
+    "scaffold",
+    "model-context-protocol",
+    "anthropic",
+    "claude"
+  ],
+  "author": "hiyilmaz",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiyilmaz/mcp-forge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hiyilmaz/mcp-forge/issues"
+  },
+  "homepage": "https://github.com/hiyilmaz/mcp-forge#readme",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "commander": "^12.0.0"
