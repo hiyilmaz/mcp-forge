@@ -4,7 +4,7 @@
   "description": "The fastest way to build MCP servers",
   "type": "module",
   "bin": {
-    "create-mcp-forge": "./dist/index.js"
+    "create-mcp-forge": "dist/index.js"
   },
   "scripts": {
     "build": "tsup && cp -r templates dist/",
